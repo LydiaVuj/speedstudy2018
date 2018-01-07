@@ -110,3 +110,4 @@ Total Points earned:215
 * [ ] Code Complete: A Practical Handbook of Software Construction
 * [ ] The Pragmatic Programmer: From Journeyman to Master
 * [ ] Cracking the Coding Interview: 189 Programming Questions and Solutions
+* [ ] Soft Skills: The software developer's life manual
