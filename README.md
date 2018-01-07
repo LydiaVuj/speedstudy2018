@@ -99,3 +99,13 @@ Total Points earned:215
 * [ ] Project: Clone [Learn Harmony](http://learnharmony.org/#/?_k=0okjs7)
 * [ ] Project: Clone Slack - the functionality should be complete to the point that one user can create a room, invite other users, and all users of that room can real-time chat. The room should be secure and inaccessible to anyone but those invited.
 
+## Books to read (pick and choose, no particular order)
+
+* [ ] Algorithms in a Nutshell
+* [ ] Clean Code: A Handbook of Agile Software Craftsmanship
+* [ ] Data Structures and Algorithms with JavaScript
+* [ ] Grokking Algorithms
+* [ ] Secrets of the JavaScript Ninja
+* [ ] Code Complete: A Practical Handbook of Software Construction
+* [ ] The Pragmatic Programmer: From Journeyman to Master
+* [ ] Cracking the Coding Interview: 189 Programming Questions and Solutions
