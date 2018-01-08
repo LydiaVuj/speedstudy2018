@@ -1,4 +1,4 @@
-<h1>Chapter 2: Lexical Scope</h1>
+## Chapter 2: Lexical Scope
 
 * Lexical scope is a scope that is definied at lexing time (place where var and blocks of scope are authored)
 
@@ -23,7 +23,8 @@
 
 _The downside to these mechanisms is that it defeats the Engine's ability to perform compile-time optimizations regarding scope look-up, because the Engine has to assume pessimistically that such optimizations will be invalid. Code will run slower as a result of using either feature. Don't use them_
 
-<h1>Chapter 3: Function vs. Block Scope</h1>
+
+## Chapter 3: Function vs. Block Scope
 
 * Function scope- all the variables belong to the function and can be used and reused  in its scope and nested scopes 
 
