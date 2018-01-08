@@ -59,3 +59,22 @@ _The downside to these mechanisms is that it defeats the Engine's ability to per
 * Declarations made with let will not hoist to the entire scope of the block they appear in. Such declarations will not observably "exist" in the block until the declaration statement.
 
 * const- which also creates a block-scoped variable, but whose value is fixed (constant). 
+
+## Chapter 4 : Hoisting
+
+* JS compilation- Part of the compilation phase was to find and associate all declarations with their appropriate scopes.
+
+* During the compilation the declaration (var a) is processed. The the assignment (a = 2) is left for the execution phase. In other words, functions and variables are moved to the top of the code - _Hoisting_
+
+* Hoisting is processed per-scope meaninf the declarations are hoisted at the top of the _scope_ not program. Also only function declarations are  hoisted **not** function expressions.
+
+* Between functions and variables, functions are hoisted first.
+
+
+
+
+
+
+
+
+
