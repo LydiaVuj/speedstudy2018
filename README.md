@@ -12,6 +12,7 @@ Total Points earned:215
 |In progress|You Don't Know JS: Scope & Closures||[You Don't Know JS: Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/README.md#you-dont-know-js-scope--closures)
 |01-07-18| She codes volunteering| opening web dev and python tracks for January 2018 with 300 participants|http://www.she-codes.org/|
 | 01-08-18 | Functional Training|15|#2|
+| In progress |Book - Soft Skills: The software developer's life manual |||
 ## Tier 1 - get started
 
 * [X] Book: [You Don't Know JS: Up & Going](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/README.md#you-dont-know-js-up--going)
