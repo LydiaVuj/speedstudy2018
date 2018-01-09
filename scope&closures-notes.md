@@ -70,6 +70,36 @@ _The downside to these mechanisms is that it defeats the Engine's ability to per
 
 * Between functions and variables, functions are hoisted first.
 
+## Chapter 5: Scope Closures
+
+* Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
+
+*  Closure lets the function continue to access the lexical scope it was defined in at author-time.
+
+```javascript
+function foo() {
+	var a = 2;
+
+	function bar() {
+		console.log( a );
+	}
+
+	return bar;
+}
+
+var baz = foo();
+
+baz(); // 2 
+```
+* closure in loops:
+```js
+for (var i=1; i<=5; i++) {
+	setTimeout( function timer(){
+		console.log( i );
+	}, i*1000 );
+}
+```
+
 
 
 
