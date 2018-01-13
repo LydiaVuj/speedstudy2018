@@ -100,6 +100,61 @@ for (var i=1; i<=5; i++) {
 }
 ```
 
+* Block Scoping 
+```js
+for (var i=1; i<=5; i++) {
+	let j = i; // yay, block-scope for closure!
+	setTimeout( function timer(){
+		console.log( j );
+	}, j*1000 );
+}
+```
+
+* Modules -invoking a function that returns a object that has references on it to our inner functions, but not to our inner data variables. The object return is assesed to the outer variable (function) therefore lets us access the property methods - foo.something
+
+* There are two "requirements" for the module pattern to be exercised:
+
+1.There must be an outer enclosing function, and it must be invoked at least once (each time creates a new module instance).
+
+2. The enclosing function must return back at least one inner function, so that this inner function has closure over the private scope, and can access and/or modify that private state.
+
+## Appendix A: Dynamic Scope
+
+* Dynamic scope seems to imply, and for good reason, that there's a model whereby scope can be determined dynamically at runtime, rather than statically at author-time, Dynamic scope, by contrast, doesn't concern itself with how and where functions and scopes are declared, but rather where they are called from. In other words, the scope chain is based on the call-stack, not the nesting of scopes in code.
+
+ * Lexical scope cares where a function was declared, but dynamic scope cares where a function was called from.
+ 
+ ## Appendix B: Polyfilling Block Scope
+ 
+ ```js
+ try{throw 2}catch(a){
+	console.log( a ); // 2
+}
+
+console.log( a ); // ReferenceError
+```
+
+## Appendix C: Lexical-this
+
+* Arrow functions introduces a behavior called "lexical this".They discard all the normal rules for this binding, and instead take on the this value of their immediate lexical enclosing scope, whatever it is.
+
+```js
+
+var obj = {
+	count: 0,
+	cool: function coolFn() {
+		if (this.count < 1) {
+			setTimeout( () => { // arrow-function ftw?
+				this.count++;
+				console.log( "awesome?" );
+			}, 100 );
+		}
+	}
+};
+
+obj.cool(); // awesome?
+```
+
 
 
 
