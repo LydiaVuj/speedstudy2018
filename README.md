@@ -3,19 +3,21 @@
 ## Progress
 
 Courses Completed: 0  
-Total Points earned:445
+Total Points earned:460
 
 | Date Finished | Activity | Points | Links |
 | ------------- | -------- | ------ | ----- |
-|   01-02-18    |  You Don't Know JS: Up & Going|200| [Up & Going](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/README.md#you-dont-know-js-up--going) 
-|  01-03-18     | Functional Training|15|#1|
+|   01-02-18 |  You Don't Know JS: Up & Going|200| [Up & Going](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/README.md#you-dont-know-js-up--going) 
+|  01-03-18 | Functional Training|15|#1|
 |01-13-18|You Don't Know JS: Scope & Closures|200|[You Don't Know JS: Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/README.md#you-dont-know-js-scope--closures)
-|01-07-18       | She codes volunteering| opening web dev and python tracks for January 2018 with 300 participants|http://www.she-codes.org/|
-| 01-08-18      | Functional Training|15|#2|
+|01-07-18 | She codes volunteering| opening web dev and python tracks for January 2018 with 300 participants|http://www.she-codes.org/|
+| 01-08-18 | Functional Training|15|#2|
 | In progress |Book - Soft Skills: The software developer's life manual |||
-| 01-11-18      | Functional Training|15|#3|
+| 01-11-18 | Functional Training|15|#3|
 |WIP|You Don't Know JS: this & Object Prototypes||[You Don't Know JS: this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20&%20object%20prototypes/README.md#you-dont-know-js-this--object-prototypes)
-
+| 01-16-18| Functional Training|15|#4|
+| WIP | Learn to Code HTML & CSS||[Learn to Code HTML & CSS](http://learn.shayhowe.com/html-css/)|
+| 01-16-18 | CS50- week 1||[Introduction to Computer Science - CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x#!)|
 ## Tier 1 - get started
 
 * [X] Book: [You Don't Know JS: Up & Going](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/README.md#you-dont-know-js-up--going)
