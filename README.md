@@ -18,6 +18,11 @@ Total Points earned:460
 | 01-16-18| Functional Training|15|#4|
 | WIP | Learn to Code HTML & CSS||[Learn to Code HTML & CSS](http://learn.shayhowe.com/html-css/)|
 | 01-16-18 | CS50- week 1||[Introduction to Computer Science - CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x#!)|
+
+## On the side
+* [ ]  Project: [JavaScript Interview Prep](https://www.hackerrank.com/chingu-challenge-9-javascript-prep) - sign up for this now and work through it alongside the rest of the guide
+* [] [Angular 4 Front To Back] (https://www.udemy.com/angular-4-front-to-back/learn/v4/content)
+
 ## Tier 1 - get started
 
 * [X] Book: [You Don't Know JS: Up & Going](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/README.md#you-dont-know-js-up--going)
