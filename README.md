@@ -21,7 +21,7 @@ Total Points earned:460
 
 ## On the side
 * [ ]  Project: [JavaScript Interview Prep](https://www.hackerrank.com/chingu-challenge-9-javascript-prep) - sign up for this now and work through it alongside the rest of the guide
-* [] [Angular 4 Front To Back] (https://www.udemy.com/angular-4-front-to-back/learn/v4/content)
+* [ ] [Angular 4 Front To Back] (https://www.udemy.com/angular-4-front-to-back/learn/v4/content)
 
 ## Tier 1 - get started
 
