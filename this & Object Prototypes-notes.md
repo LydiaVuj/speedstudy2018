@@ -116,10 +116,105 @@ obj.foo(); // 2
 
 * Because obj is the this for the foo() call, this.a is synonymous with obj.a.
 
+### Implicit Lost
+
+* One of the most common frustrations that this binding creates is when an implicitly bound function loses that binding, which usually means it falls back to the default binding, of either the global object or undefined, depending on strict mode
+
+* It's quite common that our function callbacks lose their this binding, as we've just seen. But another way that this can surprise us is when the function we've passed our callback to intentionally changes the this for the call. Event handlers in popular JavaScript libraries are quite fond of forcing your callback to have a this which points to, for instance, the DOM element that triggered the event. While that may sometimes be useful, other times it can be downright infuriating. Unfortunately, these tools rarely let you choose.
+
+### Explicit Binding
+* How do these utilities work? They both take, as their first parameter, an object to use for the this, and then invoke the function with that this specified. Since you are directly stating what you want the this to be, we call it explicit binding.
+
+Consider:
+
+```function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2
+};
+
+foo.call( obj ); // 2
+```
+* Invoking foo with explicit binding by foo.call(..) allows us to force its this to be obj.
+
+#### Hard Biding
+```
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2
+};
+
+var bar = function() {
+	foo.call( obj );
+};
+
+bar(); // 2
+setTimeout( bar, 100 ); // 2
+
+// `bar` hard binds `foo`'s `this` to `obj`
+// so that it cannot be overriden
+bar.call( window ); // 2
+```
+* Let's examine how this variation works. We create a function bar() which, internally, manually calls foo.call(obj), thereby forcibly invoking foo with obj binding for this. No matter how you later invoke the function bar, it will always manually invoke foo with obj. This binding is both explicit and strong, so we call it **hard binding.**
+
+* Since hard binding is such a common pattern, it's provided with a built-in utility as of ES5: ```Function.prototype.bind```, and it's used like this:
+```
+function foo(something) {
+	console.log( this.a, something );
+	return this.a + something;
+}
+
+var obj = {
+	a: 2
+};
+
+var bar = foo.bind( obj );
+
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+```
+ 
+ #### API Call "Contexts"
+ 
+ ### ```new``` Binding
+ 
+ * When a function is invoked with new in front of it, otherwise known as a constructor call, the following things are done automatically:
+
+1.a brand new object is created (aka, constructed) out of thin air
+2.the newly constructed object is [[Prototype]]-linked
+3.the newly constructed object is set as the this binding for that function call
+4.unless the function returns its own alternate object, the new-invoked function call will automatically return the newly constructed object.
+
+### Determining this
+
+* Now, we can summarize the rules for determining this from a function call's call-site, in their order of precedence. Ask these questions in this order, and stop when the first rule applies.
+
+1.Is the function called with new (new binding)? If so, this is the newly constructed object.
+
+var bar = new foo()
+
+2.Is the function called with call or apply (explicit binding), even hidden inside a bind hard binding? If so, this is the explicitly specified object.
+
+var bar = foo.call( obj2 )
+
+3.Is the function called with a context (implicit binding), otherwise known as an owning or containing object? If so, this is that context object.
+
+var bar = obj1.foo()
+
+4.Otherwise, default the this (default binding). If in strict mode, pick undefined, otherwise pick the global object.
+
+### Binding Exceptions
 
 
- 
- 
+
+var bar = foo()
+
+
  
  
  
