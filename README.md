@@ -18,6 +18,8 @@ Total Points earned:460
 | 01-16-18| Functional Training|15|#4|
 | WIP | Learn to Code HTML & CSS||[Learn to Code HTML & CSS](http://learn.shayhowe.com/html-css/)|
 | 01-16-18 | CS50- week 1||[Introduction to Computer Science - CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x#!)|
+| WIP |[M101JS: MongoDB for Node.js Developers]| | [M101JS: MongoDB for Node.js Developers](https://university.mongodb.com/courses/M101JS/about)
+
 
 ## On the side
 * [ ]  Project: [JavaScript Interview Prep](https://www.hackerrank.com/chingu-challenge-9-javascript-prep) - sign up for this now and work through it alongside the rest of the guide
