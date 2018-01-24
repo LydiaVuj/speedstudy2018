@@ -17,7 +17,7 @@ Total Points earned:475
 | 01-16-18| Functional Training|15|#4|
 | WIP | Learn to Code HTML & CSS||[Learn to Code HTML & CSS](http://learn.shayhowe.com/html-css/)|
 | WIP | CS50||[Introduction to Computer Science - CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x#!)|
-| 01-16-23| Functional Training|15|#5|
+| 01-23-18| Functional Training|15|#5|
 
 
 ## On the side
