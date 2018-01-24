@@ -3,7 +3,7 @@
 ## Progress
 
 Courses Completed: 0  
-Total Points earned:460
+Total Points earned:475
 
 | Date Finished | Activity | Points | Links |
 | ------------- | -------- | ------ | ----- |
@@ -17,7 +17,7 @@ Total Points earned:460
 | 01-16-18| Functional Training|15|#4|
 | WIP | Learn to Code HTML & CSS||[Learn to Code HTML & CSS](http://learn.shayhowe.com/html-css/)|
 | WIP | CS50||[Introduction to Computer Science - CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x#!)|
-| WIP |[M101JS: MongoDB for Node.js Developers]| | [M101JS: MongoDB for Node.js Developers](https://university.mongodb.com/courses/M101JS/about)
+| 01-16-23| Functional Training|15|#5|
 
 
 ## On the side
