@@ -210,9 +210,160 @@ var bar = obj1.foo()
 
 ### Binding Exceptions
 
+* ***Ignored this***
+  If you pass ```null``` or ```undefined``` as a ```this``` binding parameter to ```call, apply, or bind```, those values are effectively ignored, and instead the default binding rule applies to the invocation
+
+* Perhaps a somewhat "safer" practice is to pass a specifically set up object for this which is guaranteed not to be an object that can create problematic side effects in your program. the easiest way to set it up as totally empty is Object.create(null).
+
+* ***Indirection*** 
+
+* Another thing to be aware of is you can (intentionally or not!) create "indirect references" to functions, and in those cases, when that function reference is invoked, the default binding rule also applies.
+
+### Softening Binding
+
+* providing a different default for default binding (not global or undefined), while still leaving the function able to be manually ```this``` bound via implicit binding or explicit binding techniques.
+```
+if (!Function.prototype.softBind) {
+	Function.prototype.softBind = function(obj) {
+		var fn = this,
+			curried = [].slice.call( arguments, 1 ),
+			bound = function bound() {
+				return fn.apply(
+					(!this ||
+						(typeof window !== "undefined" &&
+							this === window) ||
+						(typeof global !== "undefined" &&
+							this === global)
+					) ? obj : this,
+					curried.concat.apply( curried, arguments )
+				);
+			};
+		bound.prototype = Object.create( fn.prototype );
+		return bound;
+	};
+}
+```
+### Lexical this
+
+* Arrow-functions are signified not by the function keyword, but by the => so called "fat arrow" operator. Instead of using the four standard this rules, arrow-functions adopt the this binding from the enclosing (function or global) scope.
+
+```
+function foo() {
+	// return an arrow function
+	return (a) => {
+		// `this` here is lexically adopted from `foo()`
+		console.log( this.a );
+	};
+}
+
+var obj1 = {
+	a: 2
+};
+
+var obj2 = {
+	a: 3
+};
+
+var bar = foo.call( obj1 );
+bar.call( obj2 ); // 2, not 3!
+```
+* The arrow-function created in foo() lexically captures whatever foo()s this is at its call-time. Since foo() was this-bound to obj1, bar (a reference to the returned arrow-function) will also be this-bound to obj1. The lexical binding of an arrow-function cannot be overridden (even with new!).
+
+## Chapter 3: Objects
+
+### Syntax
+
+The literal syntax for an object looks like this:
+```
+var myObj = {
+	key: value
+	// ...
+};
+```
+The constructed form looks like this:
+```
+var myObj = new Object();
+myObj.key = value;
+```
+## Type
+
+* Function is a sub-type of object (technically, a "callable object"). Functions in JS are said to be "first class" in that they are basically just normal objects (with callable behavior semantics bolted on), and so they can be handled like any other plain object.
+
+* Arrays are also a form of objects, with extra behavior. The organization of contents in arrays is slightly more structured than for general objects.
+
+## Built-in Objects
+
+* `string`
+* `number`
+* `boolean`
+* `null`
+* `undefined`
+* `object`
+
+* These are actually just built-in functions. Each of these built-in functions can be used as a constructor (that is, a function call with the new operator -- see Chapter 2), with the result being a newly constructed object of the sub-type in question. 
+```
+var strPrimitive = "I am a string";
+
+console.log( strPrimitive.length );			// 13
+
+console.log( strPrimitive.charAt( 3 ) );	// "m"
+```
+* In both cases, we call a property or method on a string primitive, and the engine automatically coerces it to a String object, so that the property/method access works.
+
+The same sort of coercion happens between the number literal primitive 42 and the new Number(42) object wrapper, when using methods like 42.359.toFixed(2). Likewise for Boolean objects from "boolean" primitives.
+
+* ```null``` and `undefined` have no object wrapper form, only their primitive values. By contrast, Date values can only be created with their constructed object form, as they have no literal form counter-part.
+
+* `Objects, Arrays, Functions, and RegExps` (regular expressions) are all objects regardless of whether the literal or constructed form is used. The constructed form does offer, in some cases, more options in creation than the literal form counterpart. Since objects are created either way, the simpler literal form is almost universally preferred. Only use the constructed form if you need the extra options.
+
+* `Error` objects are rarely created explicitly in code, but usually created automatically when exceptions are thrown. They can be created with the constructed form new Error(..), but it's often unnecessary.
+
+### Contents
+
+* As mentioned earlier, the contents of an object consist of values (any type) stored at specifically named locations, which we call properties.
+
+* In objects, property names are always strings. If you use any other value besides a string (primitive) as the property, it will first be converted to a string. This even includes numbers, which are commonly used as array indexes, so be careful not to confuse the use of numbers between objects and arrays.
+
+### Computed Property Names
+* ES6 adds computed property names, where you can specify an expression, surrounded by a [ ] pair, in the key-name position of an object-literal declaration:
+
+```
+var prefix = "foo";
+
+var myObject = {
+	[prefix + "bar"]: "hello",
+	[prefix + "baz"]: "world"
+};
+
+myObject["foobar"]; // hello
+myObject["foobaz"]; // world
+```
+
+### Property vs. Method
+
+* Every time you access a property on an object, that is a property access, regardless of the type of value you get back. If you happen to get a function from that property access, it's not magically a "method" at that point. There's nothing special (outside of possible implicit `this` binding as explained earlier) about a function that comes from a property access.
+
+* Because it's tempting to think of the function as belonging to the object, and in other languages, functions which belong to objects (aka, "classes") are referred to as "methods", it's not uncommon to hear, "method access" as opposed to "property access".
+
+### Arrays
+
+* Arrays are objects, so even though each index is a positive integer, you can also add properties onto the array
+
+* adding named properties (regardless of . or [ ] operator syntax) does not change the reported length of the array.
+
+### Duplicating Objects
 
 
-var bar = foo()
+
+
+
+
+
+
+
+
+
+
 
 
  
