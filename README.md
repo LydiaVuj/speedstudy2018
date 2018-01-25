@@ -70,6 +70,10 @@ Total Points earned:475
 * [ ] Project: Complete all challenges from the [Code Jam Qualification Round 2015](https://code.google.com/codejam/contest/6224486/dashboard)
 * [ ] Project: Pick a template from [here](http://www.free-css.com/free-css-templates) and create a new template with it as your inspiration (do not use its assets)
 
+## Angular
+
+* [ ] Framework guide -[Angular](https://github.com/P1xt/p1xt-guides/blob/master/topic-guides/angular.md)
+
 ## Tier 3 - build on the foundation
 
 * [ ] Course: [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1)
