@@ -353,6 +353,22 @@ myObject["foobaz"]; // world
 
 ### Duplicating Objects
 
+* objects which are JSON-safe (that is, can be serialized to a JSON string and then re-parsed to an object with the same structure and values) can easily be duplicated with:
+
+'var newObj = JSON.parse( JSON.stringify( someObj ) );'
+
+* ES6 has now defined 'Object.assign(..)' for this task. 'Object.assign(..)' takes a target object as its first parameter, and one or more source objects as its subsequent parameters. It iterates over all the enumerable , owned keys (immediately present) on the source object(s) and copies them (via = assignment only) to target. It also, helpfully, returns target.
+
+'var newObj = Object.assign( {}, myObject );
+
+newObj.a;						// 2
+newObj.b === anotherObject;		// true
+newObj.c === anotherArray;		// true
+newObj.d === anotherFunction;	// true
+'
+
+### Property Descriptors
+
 
 
 
