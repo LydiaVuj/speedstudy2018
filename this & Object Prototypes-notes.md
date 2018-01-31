@@ -359,15 +359,135 @@ myObject["foobaz"]; // world
 
 * ES6 has now defined 'Object.assign(..)' for this task. 'Object.assign(..)' takes a target object as its first parameter, and one or more source objects as its subsequent parameters. It iterates over all the enumerable , owned keys (immediately present) on the source object(s) and copies them (via = assignment only) to target. It also, helpfully, returns target.
 
-'var newObj = Object.assign( {}, myObject );
+`
+var newObj = Object.assign( {}, myObject );
 
 newObj.a;						// 2
 newObj.b === anotherObject;		// true
 newObj.c === anotherArray;		// true
 newObj.d === anotherFunction;	// true
-'
+`
 
 ### Property Descriptors
+
+* property descriptor can hold other characteristics except `value`, such as `writable`, `enumerable` and `configurable`.
+* we can use `Object.defineProperty(..)` to dreate a new (or modify an existing) property.
+* `writable` - alows you to change the value of the property
+* `configurable` allows us to modify the descriptor definition. Changing `configurable`  to false is **one way action**.
+* `configurable:false` prevents is the ability to use the delete operator to remove an existing property.
+* `enumerable` controls if a property will show up in a certain 	object property enumerations such as `for..in` loop. 
+
+### Immutability
+
+* making properties and objects that can not be changed. The following approached create only _shallow_ immutability, meaning that they only affect directly the object/property and not the connected objects/properties.
+
+***Object Constant***
+* By combining `writable:false` and `configurable:false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property.
+
+***Prevent Extensions***
+* If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(..)`
+
+***Seal***
+* `Object.seal(..)` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions(..)` on it, but also marks all its existing properties as configurable:false.
+
+***Freeze*** - highest level of immutability
+* `Object.freeze(..)` creates a frozen object, which means it takes an existing object and essentially calls `Object.seal(..)` on it, but it also marks all "data accessor" properties as `writable:false`, so that their values cannot be changed.
+
+### [[Get]]
+
+* According to the spec, the code above actually performs a `[[Get]]` operation (kinda like a function call: [[Get]]()) on the `myObject`.But one important result of this [[Get]] operation is that if it cannot through any means come up with a value for the requested property, it instead returns the value `undefined`.
+
+### [[Put]]
+
+* When invoking [[Put]], how it behaves differs based on a number of factors, including (most impactfully) whether the property is already present on the object or not.
+
+ If the property is present, the `[[Put]]` algorithm will roughly check:
+
+1. Is the property an accessor descriptor (see "Getters & Setters" section below)? If so, call the setter, if any.
+2. Is the property a data descriptor with `writable` of `false`? If so, silently fail in `non-strict mode`, or throw `TypeError` in strict mode.
+3. Otherwise, set the value to the existing property as normal.
+
+### Getters & Setters
+
+* [[Put]] and [[Get]] operations for objects completely control how values are set to existing or new properties, or retrieved from existing properties.
+
+* in ES5 there is a new way to override this operations at a per-property level, through the use of ***getters and setters***.
+
+* ***Getters*** are properties which actually call a hidden function to _retrieve_ a value. 
+* ***Setters*** are properties which actually call a hidden function to _set_ a value.
+
+* ***accessor descriptor*** - defining a property to have either a getter or a setter or both. The `value` and `writable` characteristics of the descriptor are moot and ignored, and instead JS considers the `set and get` characteristics of the property (as well as configurable and enumerable).
+`
+var myObject = {
+	// define a getter for `a`
+	get a() {
+		return 2;
+	}
+};
+
+Object.defineProperty(
+	myObject,	// target
+	"b",		// property name
+	{			// descriptor
+		// define a getter for `b`
+		get: function(){ return this.a * 2 },
+
+		// make sure `b` shows up as an object property
+		enumerable: true
+	}
+);
+
+myObject.a; // 2
+
+myObject.b; // 4
+`
+* properties should also be defined with setters, which override the default [[Put]] operation (aka, assignment), per-property.
+
+`var myObject = {
+	// define a getter for `a`
+	get a() {
+		return this._a_;
+	},
+
+	// define a setter for `a`
+	set a(val) {
+		this._a_ = val * 2;
+	}
+};
+
+myObject.a = 2;
+
+myObject.a; // 4
+`
+### Existence
+`
+var myObject = {
+	a: 2
+};
+
+("a" in myObject);				// true
+("b" in myObject);				// false
+
+myObject.hasOwnProperty( "a" );	// true
+myObject.hasOwnProperty( "b" );	// false
+`
+* The `in` operator will check to see if the property is in the object, or if it exists at any higher level of the [[Prototype]] chain object traversal 
+
+ * `hasOwnProperty(..)` checks to see if _only_ myObject has the property or not, and will not consult the [[Prototype]] chain
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
