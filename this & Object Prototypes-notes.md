@@ -417,6 +417,7 @@ newObj.d === anotherFunction;	// true
 * ***Setters*** are properties which actually call a hidden function to _set_ a value.
 
 * ***accessor descriptor*** - defining a property to have either a getter or a setter or both. The `value` and `writable` characteristics of the descriptor are moot and ignored, and instead JS considers the `set and get` characteristics of the property (as well as configurable and enumerable).
+
 `
 var myObject = {
 	// define a getter for `a`
@@ -460,6 +461,7 @@ myObject.a = 2;
 myObject.a; // 4
 `
 ### Existence
+
 `
 var myObject = {
 	a: 2
