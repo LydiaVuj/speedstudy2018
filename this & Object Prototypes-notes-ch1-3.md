@@ -477,6 +477,44 @@ myObject.hasOwnProperty( "b" );	// false
 
  * `hasOwnProperty(..)` checks to see if _only_ myObject has the property or not, and will not consult the [[Prototype]] chain
 
+ * `hasOwnProperty(..)` is accessible for all normal objects via delegation to `Object.prototype` (see Chapter 5). But it's possible to create an object that does not link to `Object.prototyp`e (via Object.create(null) -- see Chapter 5). In this case, a method call like `myObject.hasOwnProperty(..)` would fail.
+
+*Therefore we would be performing a different check-*
+
+8 `Object.prototype.hasOwnProperty.call(myObject,"a")`, which borrows the base `hasOwnProperty(..)` method and uses explicit this binding (see Chapter 2) to apply it against our `myObject`.
+
+## Enumeration
+8 "enumerable" basically means "will be included if the object's properties are iterated through".
+
+`in` vs. h`asOwnProperty(..) `differ in whether they consult the [[Prototype]] chain or not, `Object.keys(..)` and `Object.getOwnPropertyNames(..)` both inspect only the direct object specified.
+
+### Iteration
+*what if you  want to iterate over the values?*
+
+1.`forEach(..)` will iterate over all values in the array, and ignores any callback return values. 
+2.`every(..)` keeps going until the end or the callback returns a false (or "falsy") value
+3.`some(..)` keeps going until the end or the callback returns a true (or "truthy") value.
+
+ * If you iterate on an object with a for..in loop, you're also only getting at the values indirectly, because it's actually iterating only over the enumerable properties of the object, leaving you to access the properties manually to get the values.
+
+ * if you want to iterate over the values directly instead of the array indices*
+
+* The `for..of` loop asks for an iterator object (from a default internal function known as `@@iterator` in spec-speak) of the thing to be iterated, and the loop then iterates over the successive return values from calling that iterator object's `next()` method, once for each loop iteration.
+
+`
+var myArray = [ 1, 2, 3 ];
+
+for (var v of myArray) {
+	console.log( v );
+}
+// 1
+// 2
+// 3
+`
+
+
+
+
 
 
 
