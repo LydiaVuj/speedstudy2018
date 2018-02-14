@@ -1,6 +1,6 @@
 # Chapter 4: Mixing (Up) "Class" Objects
 
-##Class Theory
+## Class Theory
 
  * OO or class oriented programming stresses that data intrinsically has associated behavior (of course, different depending on the type and nature of the data!) that operates on it, so proper design is to package up (aka, encapsulate) the data and the behavior together. This is sometimes called "data structures" in formal computer science
 
@@ -22,7 +22,7 @@
 
 ## Class Mechanics
 
-#Building
+# Building
 
  * The architectural blue-prints she produces are only plans for a building. They don't actually constitute a building we can walk into and sit down. We need a builder for that task. A builder will take those plans and follow them, exactly, as he builds the building. In a very real sense, he is copying the intended characteristics from the plans to the physical building.
 
@@ -34,7 +34,7 @@
 
  * A class is instantiated into object form by a copy operation.
 
-#Constructor
+# Constructor
 
  * Instances of classes are constructed by a special method of the class, usually of the same name as the class, called a constructor. This method's explicit job is to initialize any information (state) the instance will need.
 
