@@ -501,7 +501,7 @@ myObject.hasOwnProperty( "b" );	// false
 
 * The `for..of` loop asks for an iterator object (from a default internal function known as `@@iterator` in spec-speak) of the thing to be iterated, and the loop then iterates over the successive return values from calling that iterator object's `next()` method, once for each loop iteration.
 
-`
+`js
 var myArray = [ 1, 2, 3 ];
 
 for (var v of myArray) {
@@ -509,8 +509,7 @@ for (var v of myArray) {
 }
 // 1
 // 2
-// 3
-`
+// 3`
 
 
 
