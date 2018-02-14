@@ -4,7 +4,7 @@
 Current Book: YDKJS:this and object
 Current Course : CS50x
 Courses Completed: 0  
-Total Points earned:505
+Total Points earned:550
 
 | Date Finished | Activity | Points | Links |
 | ------------- | -------- | ------ | ----- |
@@ -21,8 +21,9 @@ Total Points earned:505
 | 01-23-18| Functional Training|15|#5|
 | 01-25-18| Functional Training|15|#6|
 | 01-29-18| Functional Training|15|#7|
-
-
+| 02-01-18| Functional Training|15|#8|
+| 02-06-18| Functional Training|15|#9|
+| 02-13-18| Functional Training|15|#10|
 ## On the side
 * [ ]  Project: [JavaScript Interview Prep](https://www.hackerrank.com/chingu-challenge-9-javascript-prep) - sign up for this now and work through it alongside the rest of the guide
 * [ ] [Angular 4 Front To Back] (https://www.udemy.com/angular-4-front-to-back/learn/v4/content)
