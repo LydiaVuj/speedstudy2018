@@ -76,8 +76,13 @@
  
  * But if we said `Vehicle.drive()`, the this binding for that function call would be the `Vehicle `object instead of the `Car` object (see Chapter 2), which is not what we want. So, instead we use `.call( this )` (Chapter 2) to ensure that drive() is executed in the context of the `Car `object.
 
+* In class-oriented languages, which have relative polymorphism, the linkage between Car and Vehicle is established once, at the top of the class definition, which makes for only one place to maintain such relationships
 
+ * Explicit pseudo-polymorphism should be avoided wherever possible, because the cost outweighs the benefit in most respect
 
+### Mixing Copies
+
+* If you explicitly mix-in two or more objects into your target object, you can partially emulate the behavior of "multiple inheritance", but there's no direct way to handle collisions if the same method or property is being copied from more than one source. Some developers/libraries have come up with "late binding" techniques and other exotic work-arounds, but fundamentally these "tricks" are usually more effort (and lesser performance!) than the pay-off.
 
 
 
